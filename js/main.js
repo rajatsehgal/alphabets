@@ -13,13 +13,17 @@ function loadVoices() {
 loadVoices();
 speechSynthesis.onvoiceschanged = loadVoices;
 
-window.addEventListener('keyup', (e) => {
+window.addEventListener('keypress', (e) => {
   e.preventDefault();
 
   const letter = e.key;
-  letterDiv.textContent = letter;
+  const word = words[letter];
+  
+  if (!word) {
+    return;
+  }
 
-  const word = words[letter] ? words[letter] : letter;  
+  letterDiv.textContent = letter;
   wordDiv.textContent = word;
   
   imageDiv.src = `images/${word}.png`;
