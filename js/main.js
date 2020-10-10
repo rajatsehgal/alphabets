@@ -13,7 +13,7 @@ function loadVoices() {
 loadVoices();
 speechSynthesis.onvoiceschanged = loadVoices;
 
-window.addEventListener('keypress', (e) => {
+window.addEventListener('keyup', (e) => {
   e.preventDefault();
 
   const letter = e.key;
@@ -30,5 +30,6 @@ window.addEventListener('keypress', (e) => {
   
   const utterThis = new SpeechSynthesisUtterance(word);
   utterThis.voice = voices.find(v => v.name ==='Google US English');
+  synth.cancel();
   synth.speak(utterThis);
 });
