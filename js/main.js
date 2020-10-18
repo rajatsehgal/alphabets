@@ -3,15 +3,8 @@ import words from './words.js';
 const letterDiv = document.getElementById('letter');
 const imageDiv = document.getElementById('image');
 const wordDiv = document.getElementById('word');
-const synth = window.speechSynthesis;
-var voices;
 
-function loadVoices() {
-  voices = synth.getVoices();
-}
-
-loadVoices();
-speechSynthesis.onvoiceschanged = loadVoices;
+const audio = new Audio();
 
 window.addEventListener('keyup', (e) => {
   e.preventDefault();
@@ -27,9 +20,6 @@ window.addEventListener('keyup', (e) => {
   wordDiv.textContent = word;
   
   imageDiv.src = `images/${word}.png`;
-  
-  const utterThis = new SpeechSynthesisUtterance(word);
-  utterThis.voice = voices.find(v => v.name ==='Google US English');
-  synth.cancel();
-  synth.speak(utterThis);
+  audio.src = `audio/${word}.mp3`;
+  audio.play();
 });
