@@ -8,6 +8,10 @@ const wordDiv = document.getElementById('word');
 
 const audio = new Audio();
 
+window.addEventListener('keydown', (e) => {
+  e.preventDefault();
+});
+
 window.addEventListener('keyup', (e) => {
   e.preventDefault();
 
