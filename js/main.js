@@ -1,5 +1,7 @@
 import words from './words.js';
 
+const category = 'animals';
+
 const letterDiv = document.getElementById('letter');
 const imageDiv = document.getElementById('image');
 const wordDiv = document.getElementById('word');
@@ -19,7 +21,7 @@ window.addEventListener('keyup', (e) => {
   letterDiv.textContent = letter;
   wordDiv.textContent = word;
   
-  imageDiv.src = `images/${word}.png`;
-  audio.src = `audio/${word}.mp3`;
+  imageDiv.src = `images/${category}/${word}.png`;
+  audio.src = `audio/${category}/${word}.mp3`;
   audio.play();
 });
