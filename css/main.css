@@ -5,6 +5,7 @@ html, body, div {
     margin: 0;
     overflow: hidden;
     background: #92eab7;
+    user-select: none;
   }
   
   #grid {

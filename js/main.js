@@ -12,6 +12,10 @@ window.addEventListener('keydown', (e) => {
   e.preventDefault();
 });
 
+window.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+});
+
 window.addEventListener('keyup', (e) => {
   e.preventDefault();
 
