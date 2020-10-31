@@ -19,10 +19,10 @@ export default {
     r: 'rabbit',
     s: 'sheep',
     t: 'turkey',
-    u: 'umbrella',
+    u: 'urchin',
     v: 'vulture',
     w: 'whale',
-    x: 'x-ray fish',
+    x: 'x-ray tetra',
     y: 'yak',
     z: 'zebra'
   };
