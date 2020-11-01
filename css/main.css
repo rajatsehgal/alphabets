@@ -20,8 +20,10 @@ html, body, div {
     text-transform: capitalize;
     font-family: "Helvetica Neue";
     text-align: center;
-    font-size: 40vh;
-    line-height: 40vh;
+    font-size: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   #letter {
