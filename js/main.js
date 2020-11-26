@@ -1,35 +1,10 @@
-import words from './words.js';
+import './components/HomeView.js';
+import './components/CategoryView.js';
 
-const category = 'animals';
-
-const letterDiv = document.getElementById('letter');
-const imageDiv = document.getElementById('image');
-const wordDiv = document.getElementById('word');
-
-const audio = new Audio();
-
-window.addEventListener('keydown', (e) => {
+function preventDefault(e) {
   e.preventDefault();
-});
+}
 
-window.addEventListener('contextmenu', (e) => {
-  e.preventDefault();
-});
-
-window.addEventListener('keyup', (e) => {
-  e.preventDefault();
-
-  const letter = e.key;
-  const word = words[letter];
-  
-  if (!word) {
-    return;
-  }
-
-  letterDiv.textContent = letter;
-  wordDiv.textContent = word;
-  
-  imageDiv.src = `images/${category}/${word}.png`;
-  audio.src = `audio/${category}/${word}.mp3`;
-  audio.play();
-});
+window.addEventListener('keydown', preventDefault);
+window.addEventListener('keypress', preventDefault);
+window.addEventListener('contextmenu', preventDefault);
