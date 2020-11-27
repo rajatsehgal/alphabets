@@ -15,15 +15,17 @@ class CategoryView extends Component {
       css`
         :host {
           display: grid;
-          grid-template-rows: auto 1fr 1fr;
+          grid-template-rows: auto 1fr auto;
           grid-template-columns: 1fr 1fr;
           justify-items: center;
           align-items: center;
+          height: 100%;
+          width: 100%;
         }
 
         #title {
           text-transform: capitalize;
-          font-size: 50px;
+          font-size: 10vh;
           grid-row: 1;
           grid-column: 1/3;
         }
@@ -31,7 +33,7 @@ class CategoryView extends Component {
         #letter, #word {
           text-transform: capitalize;
           text-align: center;
-          font-size: 200px;
+          font-size: 15vh;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -48,6 +50,11 @@ class CategoryView extends Component {
           grid-column: 2;
           display: flex;
           align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          min-height: 0;
+          min-width: 0;
         }
       
         #image {

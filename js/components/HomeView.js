@@ -14,11 +14,14 @@ class HomeView extends Component {
       super.styles,
       css`
         :host {
-          display: flex;
+          display: grid;
           width: 100%;
           height: 100%;
           align-items: center;
           justify-content: center;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr;
+          grid-gap: 100px;
         }
       `
     ];
