@@ -5,7 +5,9 @@ import words from '../words.js';
 class CategoryView extends Component {
   static get properties() {
     return {
-      category: { type: String }
+      category: { type: String },
+      letter: { type: String },
+      word: { type: String }
     };
   }
 
@@ -80,10 +82,6 @@ class CategoryView extends Component {
       document.body.removeChild(this);
     }
 
-    const letterDiv = this.shadowRoot.getElementById('letter');
-    const imageDiv = this.shadowRoot.getElementById('image');
-    const wordDiv = this.shadowRoot.getElementById('word');
-
     const letter = e.key;
     const word = words[this.category][letter];
     
@@ -91,10 +89,9 @@ class CategoryView extends Component {
       return;
     }
 
-    letterDiv.textContent = letter;
-    wordDiv.textContent = word;
+    this.letter = letter;
+    this.word = word;
     
-    imageDiv.src = `images/${this.category}/${word}.png`;
     this._audio.src = `audio/${this.category}/${word}.mp3`;
     this._audio.play();
   }
@@ -113,12 +110,16 @@ class CategoryView extends Component {
   }
 
   render() {
-    return html`
-      <div id="title">${this.category}</div>
-      <div id="letter"></div>
-      <div id="imageWrapper"><img id="image"></div>
-      <div id="word"></div>
-    `;
+    let result = '';
+    if (this.word) {
+      result = html`
+        <div id="title">${this.category}</div>
+        <div id="letter">${`${this.letter}${this.letter}`}</div>
+        <div id="imageWrapper"><img id="image" src=${`images/${this.category}/${this.word}.png`}></div>
+        <div id="word">${this.word}</div>
+      `;
+    }
+    return result;
   }
 }
 

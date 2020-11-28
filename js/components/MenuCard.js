@@ -1,11 +1,11 @@
 import { css, html } from '../../lit-element.js';
 import Component from './Component.js';
-import words from '../words.js';
 
 class MenuCard extends Component {
   static get properties() {
     return {
-      text: { type: String }
+      text: { type: String },
+      word: { type: String }
     };
   }
 
@@ -21,6 +21,9 @@ class MenuCard extends Component {
           justify-content: center;
           grid-template-rows: 1fr auto;
           grid-template-columns: 1fr;
+          min-height: 0;
+          padding: 50px;
+          box-sizing: border-box;
         }
 
         #imgWrapper {
@@ -44,7 +47,7 @@ class MenuCard extends Component {
         }
 
         #text {
-          font-size: 15vh;
+          font-size: 10vh;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -57,7 +60,7 @@ class MenuCard extends Component {
   render() {
     return html`
       <div id="imgWrapper">
-        <img src="images/${this.text}/${words[this.text].a}.png"}>
+        <img src="images/${this.text}/${this.word}.png"}>
       </div>
       <div id="text"><span id="firstLetter">${this.text[0]}</span><span>${this.text.substring(1)}</span></div>
     `;

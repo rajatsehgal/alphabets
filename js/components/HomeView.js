@@ -20,8 +20,8 @@ class HomeView extends Component {
           align-items: center;
           justify-content: center;
           grid-template-columns: 1fr 1fr;
-          grid-template-rows: 1fr;
-          grid-gap: 100px;
+          grid-template-rows: 1fr 1fr;
+          min-height: 0;
         }
       `
     ];
@@ -29,7 +29,12 @@ class HomeView extends Component {
 
   constructor() {
     super();
-    this.categories = ['animals', 'produce'];
+    this.categories = ['animals', 'produce', 'objects'];
+    this.homeWords = {
+      animals: 'dog',
+      produce: 'apple',
+      objects: 'car'
+    };
   }
 
   handleKeyup(e) {
@@ -58,7 +63,7 @@ class HomeView extends Component {
   }
 
   render() {
-    return this.categories.map((c) => html`<menu-card text=${c}></menu-card>`);
+    return this.categories.map((c) => html`<menu-card text=${c} word=${this.homeWords[c]}></menu-card>`);
   }
 }
 

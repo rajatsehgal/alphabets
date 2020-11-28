@@ -54,5 +54,33 @@ export default {
     x: 'x-ray tetra',
     y: 'yak',
     z: 'zebra'
+  },
+  objects: {
+    a: 'apple',
+    b: 'banana',
+    c: 'carrot',
+    d: 'date',
+    e: 'eggplant',
+    f: 'fig',
+    g: 'grapes',
+    h: '',
+    i: 'impala',
+    j: 'jaguar',
+    k: 'kingfisher',
+    l: 'lion',
+    m: 'monkey',
+    n: 'nightingale',
+    o: 'owl',
+    p: 'pig',
+    q: 'quail',
+    r: 'rabbit',
+    s: 'sheep',
+    t: 'turkey',
+    u: 'urchin',
+    v: 'vulture',
+    w: 'whale',
+    x: 'x-ray tetra',
+    y: 'yak',
+    z: 'zebra'
   }
 };
