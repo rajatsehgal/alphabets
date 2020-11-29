@@ -1,6 +1,7 @@
 import { css, html } from '../../lit-element.js';
 import Component from './Component.js';
 import words from '../words.js';
+import './AlphabetText.js';
 
 class CategoryView extends Component {
   static get properties() {
@@ -32,21 +33,19 @@ class CategoryView extends Component {
           font-size: 10vh;
           grid-row: 1;
           grid-column: 1/3;
-        }
-        
-        #letter, #word {
-          text-transform: capitalize;
-          text-align: center;
-          font-size: 15vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          color: grey;
         }
         
         #letter {
           grid-row: 2;
           grid-column: 1;
           color: var(--red);
+          text-transform: capitalize;
+          text-align: center;
+          font-size: 15vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       
         #imageWrapper {
@@ -66,10 +65,14 @@ class CategoryView extends Component {
           max-height: 100%;
         }
         
-        #word {
+        alphabet-text {
           grid-row: 3;
           grid-column: 1/3;
-          white-space: nowrap;
+        }
+
+        #letter, #imageWrapper {
+          transition: opacity 1s;
+          opacity: 1;
         }
       `
     ];
@@ -112,14 +115,13 @@ class CategoryView extends Component {
   }
 
   render() {
-    let result = '';
+    const result = [html`<div id="title">${this.category}</div>`];
     if (this.word) {
-      result = html`
-        <div id="title">${this.category}</div>
+      result.push(html`
         <div id="letter">${`${this.letter}${this.letter}`}</div>
         <div id="imageWrapper"><img id="image" src=${`images/${this.category}/${this.word}.png`}></div>
-        <div id="word">${this.word}</div>
-      `;
+        <alphabet-text text=${this.word}></alphabet-text>
+      `);
     }
     return result;
   }

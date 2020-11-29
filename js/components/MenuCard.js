@@ -1,5 +1,6 @@
 import { css, html } from '../../lit-element.js';
 import Component from './Component.js';
+import './AlphabetText.js';
 
 class MenuCard extends Component {
   static get properties() {
@@ -63,7 +64,7 @@ class MenuCard extends Component {
       <div id="imgWrapper">
         <img src="images/${this.text}/${this.word}.png"}>
       </div>
-      <div id="text"><span id="firstLetter">${this.text[0]}</span><span>${this.text.substring(1)}</span></div>
+      <alphabet-text text=${this.text}></alphabet-text>
     `;
   }
 }
