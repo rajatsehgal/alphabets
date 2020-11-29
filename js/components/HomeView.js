@@ -22,6 +22,9 @@ class HomeView extends Component {
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 1fr 1fr;
           min-height: 0;
+          padding: 20px;
+          grid-gap: 20px;
+          box-sizing: border-box;
         }
       `
     ];

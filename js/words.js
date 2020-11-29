@@ -53,7 +53,7 @@ export default {
     w: 'watermelon',
     x: 'xigua',
     y: 'yam',
-    z: 'zuchinni'
+    z: 'zucchini'
   },
   objects: {
     a: 'apple',

@@ -22,8 +22,9 @@ class MenuCard extends Component {
           grid-template-rows: 1fr auto;
           grid-template-columns: 1fr;
           min-height: 0;
-          padding: 50px;
+          padding: 10px;
           box-sizing: border-box;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         }
 
         #imgWrapper {
