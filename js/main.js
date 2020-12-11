@@ -1,5 +1,4 @@
 import './components/HomeView.js';
-import './components/CategoryView.js';
 
 function preventDefault(e) {
   e.preventDefault();

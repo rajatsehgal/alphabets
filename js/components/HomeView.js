@@ -1,6 +1,8 @@
 import { css, html } from '../../lit-element.js';
 import Component from './Component.js';
 import './MenuCard.js';
+import './CategoryView.js';
+import './NumbersView.js';
 
 class HomeView extends Component {
   static get properties() {
@@ -32,11 +34,12 @@ class HomeView extends Component {
 
   constructor() {
     super();
-    this.categories = ['animals', 'produce', 'objects'];
+    this.categories = ['animals', 'produce', 'objects', 'numbers'];
     this.homeWords = {
       animals: 'dog',
       produce: 'apple',
-      objects: 'car'
+      objects: 'car',
+      numbers: 'blueberry'
     };
   }
 
@@ -45,7 +48,10 @@ class HomeView extends Component {
 
     this.categories.forEach((c) => {
       if (c[0] === e.key) {
-        const categoryView = document.createElement('category-view');
+        let categoryView = document.createElement('category-view');
+        if (c === 'numbers') {
+          categoryView = document.createElement('numbers-view');
+        }
         categoryView.category = c;
         document.body.appendChild(categoryView);
         document.body.removeChild(this);

@@ -1,14 +1,11 @@
 import { css, html } from '../../lit-element.js';
 import Component from './Component.js';
-import words from '../words.js';
-import './AlphabetText.js';
 
-class CategoryView extends Component {
+class NumbersView extends Component {
   static get properties() {
     return {
       category: { type: String },
-      letter: { type: String },
-      word: { type: String }
+      number: { type: String }
     };
   }
 
@@ -18,7 +15,7 @@ class CategoryView extends Component {
       css`
         :host {
           display: grid;
-          grid-template-rows: auto 1fr auto;
+          grid-template-rows: auto 1fr;
           grid-template-columns: 1fr 1fr;
           justify-items: center;
           align-items: center;
@@ -36,7 +33,7 @@ class CategoryView extends Component {
           color: grey;
         }
         
-        #letter {
+        #number {
           grid-row: 2;
           grid-column: 1;
           color: var(--red);
@@ -51,23 +48,6 @@ class CategoryView extends Component {
         #imageWrapper {
           grid-row: 2;
           grid-column: 2;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          height: 100%;
-          min-height: 0;
-          min-width: 0;
-        }
-      
-        #image {
-          max-width: 100%;
-          max-height: 100%;
-        }
-        
-        alphabet-text {
-          grid-row: 3;
-          grid-column: 1/3;
         }
       `
     ];
@@ -82,17 +62,15 @@ class CategoryView extends Component {
       document.body.removeChild(this);
     }
 
-    const letter = e.key.toLowerCase();
-    const word = words[this.category][letter];
+    const number = parseInt(e.key);
     
-    if (!word) {
+    if (!number) {
       return;
     }
 
-    this.letter = letter;
-    this.word = word;
+    this.number = number;
     
-    this._audio.src = `audio/${this.category}/${word}.mp3`;
+    this._audio.src = `audio/${this.category}/${number}.mp3`;
     this._audio.play();
   }
 
@@ -109,17 +87,24 @@ class CategoryView extends Component {
     window.removeEventListener('keyup', this._handleKeyup);
   }
 
+  renderBlueberries() {
+    const blueberries = [];
+    for (let i = 0; i < this.number; i += 1) {
+      blueberries.push(html`<img src=${`images/${this.category}/blueberry.png`}>`);
+    }
+    return blueberries;
+  }
+
   render() {
     const result = [html`<div id="title">${this.category}</div>`];
-    if (this.word) {
+    if (this.number) {
       result.push(html`
-        <div id="letter">${`${this.letter}${this.letter}`}</div>
-        <div id="imageWrapper"><img id="image" src=${`images/${this.category}/${this.word}.png`}></div>
-        <alphabet-text text=${this.word}></alphabet-text>
+        <div id="number">${this.number}</div>
+        <div id="imageWrapper">${this.renderBlueberries()}</div>
       `);
     }
     return result;
   }
 }
 
-customElements.define('category-view', CategoryView);
+customElements.define('numbers-view', NumbersView);
