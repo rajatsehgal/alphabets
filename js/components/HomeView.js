@@ -47,7 +47,7 @@ class HomeView extends Component {
     e.preventDefault();
 
     this.categories.forEach((c) => {
-      if (c[0] === e.key) {
+      if (c[0] === e.key.toLowerCase()) {
         let categoryView = document.createElement('category-view');
         if (c === 'numbers') {
           categoryView = document.createElement('numbers-view');
