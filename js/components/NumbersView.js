@@ -23,6 +23,8 @@ class NumbersView extends Component {
           width: 100%;
           padding: 20px;
           box-sizing: border-box;
+          min-height: 0px;
+          min-width: 0px;
         }
 
         #title {
@@ -45,9 +47,56 @@ class NumbersView extends Component {
           align-items: center;
         }
       
-        #imageWrapper {
+        #imageArea {
+          display: grid;
+          grid-template-areas:
+            "a . c"
+            "e g f"
+            "d . b";
           grid-row: 2;
           grid-column: 2;
+          min-height: 0px;
+          min-width: 0px;
+          height: 100%;
+          width: 100%;
+        }
+
+        img {
+          max-height: 100%;
+        }
+
+        .imgWrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          min-height: 0px;
+          min-width: 0px;
+        }
+
+        .imgWrapper:nth-child(2) {
+          grid-area: b;
+        }
+
+        .imgWrapper:nth-child(3) {
+          grid-area: c;
+        }
+        
+        .imgWrapper:nth-child(4) {
+          grid-area: d;
+        }
+
+        .imgWrapper:nth-child(5) {
+          grid-area: e;
+        }
+
+        .imgWrapper:nth-child(6) {
+          grid-area: f;
+        }
+        
+        .imgWrapper:nth-child(odd):last-child {
+          grid-area: g;
         }
       `
     ];
@@ -90,7 +139,7 @@ class NumbersView extends Component {
   renderBlueberries() {
     const blueberries = [];
     for (let i = 0; i < this.number; i += 1) {
-      blueberries.push(html`<img src=${`images/${this.category}/blueberry.png`}>`);
+      blueberries.push(html`<div class="imgWrapper"><img src=${`images/${this.category}/blueberry.png`}></div>`);
     }
     return blueberries;
   }
@@ -100,7 +149,7 @@ class NumbersView extends Component {
     if (this.number) {
       result.push(html`
         <div id="number">${this.number}</div>
-        <div id="imageWrapper">${this.renderBlueberries()}</div>
+        <div id="imageArea">${this.renderBlueberries()}</div>
       `);
     }
     return result;
