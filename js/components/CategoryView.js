@@ -24,7 +24,7 @@ class CategoryView extends Component {
           align-items: center;
           height: 100%;
           width: 100%;
-          padding: 20px;
+          padding: 20px 20px 80px 20px;
           box-sizing: border-box;
         }
 
